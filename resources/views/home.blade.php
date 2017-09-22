@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.master')
 
 @section('content')
 <div class="container">
@@ -20,4 +20,12 @@
         </div>
     </div>
 </div>
+@endsection
+
+@section('scripts')
+    <script src="https://code.jquery.com/jquery-3.0.0.min.js"></script>
+    <script src="{{asset('js/sidebar-menu.js')}}"></script>
+    <script>
+        $.sidebarMenu($('.sidebar-menu'))
+    </script>
 @endsection
