@@ -57,7 +57,7 @@
         <div class="collapse navbar-collapse" id="app-navbar-collapse">
             <!-- Left Side Of Navbar -->
             <ul class="nav navbar-nav">
-                <li style="border:1px solid #eee;"><a href="" class="btn-default"><i class="fa fa-bars"></i></a></li>
+                <li style="border:1px solid #eee;" class="hidden-xs hidden-sm"><a href="" class="btn-default"><i class="fa fa-bars"></i></a></li>
             </ul>
 
             <!-- Right Side Of Navbar -->
@@ -69,7 +69,6 @@
                     <li><a href="">About Us</a></li>
                     <li><a href="">FAQs</a></li>
                     <li><a href="">Blogs</a></li>
-                    <li><a href="">Contact US</a></li>
                     <li><a href="{{ route('login') }}">Login</a></li>
                     <li><a href="{{ route('register') }}">Register</a></li>
                 @else
