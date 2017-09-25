@@ -32,6 +32,7 @@
             <!-- Optionally, you can add icons to the links -->
             <li class="active"><a href="#"><i class="fa fa-dashboard"></i> <span>Dashboard</span></a></li>
             <li><a href="{{route('property.index')}}"><i class="fa fa-building"></i> <span>Property</span></a></li>
+            <li><a href="{{route('product.index')}}"><i class="fa fa-cube"></i> <span>Direct Selling</span></a></li>
             <li class="treeview">
                 <a href="#"><span class="fa fa-cog"></span><span>Settings</span><i class="fa fa-angle-left pull-right"></i></a>
                 <ul class="treeview-menu">
