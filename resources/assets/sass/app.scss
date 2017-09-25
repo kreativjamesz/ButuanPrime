@@ -8,10 +8,13 @@
 // Variables
 @import "variables";
 
-// Bootstrap
+// Bootstrap 3
 @import "~bootstrap-sass/assets/stylesheets/bootstrap";
+// Bootstrap 4
+// import "node_modules/bootstrap/scss/bootstrap";
 
 // Modifications
 @import "modifiers";
 @import "helpers";
 @import "styles";
+

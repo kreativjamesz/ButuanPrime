@@ -1,7 +1,7 @@
 <header class="main-header">
 
     <!-- Logo -->
-    <a href="index2.html" class="logo"><b>Butuan</b>PRIME</a>
+    <a href="index2.html" class="logo" style="background: #fff;padding-bottom:2px;"><img src="{{asset('img/logo.png')}}" alt="" clas="img-responsive" style="height:50px;width:auto;"></a>
 
     <!-- Header Navbar -->
     <nav class="navbar navbar-static-top" role="navigation">

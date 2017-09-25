@@ -20,6 +20,7 @@
     </div>
 
     <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}"></script>
+    <script type="text/javascript"  src="{{ asset('bower_components/AdminLTE/plugins/jQuery/jquery-2.2.3.min.js') }}"></script>
+    <script type="text/javascript"  src="{{ asset('js/app.js') }}"></script>
 </body>
 </html>
