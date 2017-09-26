@@ -1,7 +1,11 @@
 <header class="main-header">
 
     <!-- Logo -->
-    <a href="index2.html" class="logo" style="background: #fff;padding-bottom:2px;"><img src="{{asset('img/logo.png')}}" alt="" clas="img-responsive" style="height:50px;width:auto;"></a>
+    {{-- <a href="index2.html" class="logo" style="background: #fff;padding-bottom:2px;"><img src="{{asset('img/logo.png')}}" alt="" clas="img-responsive" style="height:50px;width:auto;"></a> --}}
+    <a href="index2.html" class="logo">
+        <span class="logo-mini"><b>W</b>V</span>
+        <span class="logo-lg"><b>Wheng</b> Vasig</span>
+    </a>
 
     <!-- Header Navbar -->
     <nav class="navbar navbar-static-top" role="navigation">

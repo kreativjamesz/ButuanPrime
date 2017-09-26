@@ -23,34 +23,38 @@
             {{csrf_field()}}
             <!-- Marketplace -->
             <div class="form-group">
-                <select name="" id="input" class="form-control input-lg" required="required" placeholder="Select Marketplace" autofocus>
+                <select name="" id="input" class="form-control input-lg" required="required" required="required" placeholder="Select Marketplace" autofocus>
                     <option value="0" selected="selected">--Select Marketplace--</option>
-                    <option value=""></option>
+                    @foreach($marketplaces as $market)
+                        <option value="{{$market->id}}">{{$market->title}}</option>
+                    @endforeach
                 </select>
             </div>
             <!--Category-->
             <div class="form-group">
-                <select name="" id="input" class="form-control input-lg" required="required" placeholder="Select Marketplace">
+                <select name="" id="input" class="form-control input-lg" required="required" required="required" placeholder="Select Marketplace">
                     <option value="0" selected="selected">--Select Category--</option>
-                    <option value=""></option>
+                    @foreach($categories as $category)
+                        <option value="{{$category->id}}">{{$category->title}}</option>
+                    @endforeach
                 </select>
             </div>
             <!-- TITLE -->
             <div class="form-group">
                 <div class="">
-                    <input type="text" name="title" class="form-control input-lg" placeholder="Product Title">
+                    <input type="text" name="title" class="form-control input-lg" required="required" placeholder="Product Title">
                 </div>
             </div>
             <!-- REGULAR -->
             <div class="form-group">
                 <div class="">
-                    <input type="text" name="regular" class="form-control input-lg" placeholder="Regular Price">
+                    <input type="text" name="regular" class="form-control input-lg" required="required" placeholder="Regular Price">
                 </div>
             </div>
             <!-- DISCOUNTED -->
             <div class="form-group">
                 <div class="">
-                    <input type="text" name="discounted" class="form-control input-lg" placeholder="Discounted Price">
+                    <input type="text" name="discounted" class="form-control input-lg" required="required" placeholder="Discounted Price">
                 </div>
             </div>
             <!-- DESCRIPTION -->

@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Marketplace;
+use App\Category;
 
 class AdminDashboardProductController extends Controller
 {
@@ -22,7 +24,9 @@ class AdminDashboardProductController extends Controller
      */
     public function index()
     {
-        return view('admindashboard.product.index');
+        $marketplaces = Marketplace::pluck('title','id');
+        $categories = Category::pluck('title','id');
+        return view('admindashboard.product.index',compact('marketplaces','categories'));
     }
 
     /**
@@ -32,7 +36,9 @@ class AdminDashboardProductController extends Controller
      */
     public function create()
     {
-        return view('admindashboard.product.create');
+        $marketplaces = Marketplace::all();
+        $categories = Category::all();
+        return view('admindashboard.product.create',compact('marketplaces','categories'));
     }
 
     /**
