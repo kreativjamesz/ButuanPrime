@@ -19,9 +19,9 @@
         <form action="#" method="get" class="sidebar-form">
             <div class="input-group">
                 <input type="text" name="q" class="form-control" placeholder="Search..."/>
-  <span class="input-group-btn">
-    <button type='submit' name='search' id='search-btn' class="btn btn-flat"><i class="fa fa-search"></i></button>
-  </span>
+                  <span class="input-group-btn">
+                    <button type='submit' name='search' id='search-btn' class="btn btn-flat"><i class="fa fa-search"></i></button>
+                  </span>
             </div>
         </form>
         <!-- /.search form -->
@@ -30,14 +30,14 @@
         <ul class="sidebar-menu">
             <li class="header">HEADER</li>
             <!-- Optionally, you can add icons to the links -->
-            <li class="active"><a href="#"><i class="fa fa-dashboard"></i> <span>Dashboard</span></a></li>
-            <li><a href="{{route('property.index')}}"><i class="fa fa-building"></i> <span>Property</span></a></li>
-            <li><a href="{{route('product.index')}}"><i class="fa fa-cube"></i> <span>Direct Selling</span></a></li>
-            <li class="treeview">
+            <li @if (Request::is('dashboard/dashboard*')) class="active" @endif><a href="{{route('dashboard')}}"><i class="fa fa-dashboard"></i> <span>Dashboard</span></a></li>
+            <li @if (Request::is('dashboard/property*')) class="active" @endif><a href="{{route('property.index')}}"><i class="fa fa-building"></i> <span>Property</span></a></li>
+            <li @if (Request::is('dashboard/product*')) class="active" @endif><a href="{{route('product.index')}}"><i class="fa fa-cubes"></i> <span>Products</span></a></li>
+            <li class="treeview @if (Request::is('settings*')) active @endif><a href="{{route('dashboard')}}">
                 <a href="#"><span class="fa fa-cog"></span><span>Settings</span><i class="fa fa-angle-left pull-right"></i></a>
                 <ul class="treeview-menu">
-                    <li><a href="#">Link in level 2</a></li>
-                    <li><a href="#">Link in level 2</a></li>
+                    <li @if (Request::is('dashboard/marketplace*')) class="active" @endif><a href="{{route('marketplace.index')}}">Marketplace</a></li>
+                    <li @if (Request::is('dashboard/category*')) class="active" @endif><a href="{{route('category.index')}}">Category</a></li>
                 </ul>
             </li>
         </ul><!-- /.sidebar-menu -->

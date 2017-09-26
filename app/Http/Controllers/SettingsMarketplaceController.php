@@ -3,8 +3,12 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Marketplace;
+use Session;
+use DB;
 
-class AdminDashboardProductController extends Controller
+
+class SettingsMarketplaceController extends Controller
 {
     /**
      * Create a new controller instance.
@@ -22,7 +26,8 @@ class AdminDashboardProductController extends Controller
      */
     public function index()
     {
-        return view('admindashboard.product.index');
+        $marketplaces = Marketplace::orderBy('id','desc')->paginate(5);
+        return view('admindashboard.settings.marketplace.index',compact('marketplaces'));
     }
 
     /**
@@ -32,7 +37,7 @@ class AdminDashboardProductController extends Controller
      */
     public function create()
     {
-        return view('admindashboard.product.create');
+        return view('admindashboard.settings.marketplace.create');
     }
 
     /**
@@ -47,13 +52,12 @@ class AdminDashboardProductController extends Controller
             'title'=>'required',
         ]);
 
-        $property = new Product();
-        $property->title = $request->title;
-        $property->save();
+        $marketplace = new Marketplace();
+        $marketplace->title = $request->title;
+        $marketplace->save();
 
-        Session::flash('success', 'Successfully created the new '. $property->title . ' role in the database.');
-        return redirect()->route('product.show', $property->id);
-
+        Session::flash('success', 'Successfully created the new '. $marketplace->title . ' role in the database.');
+        return redirect()->route('marketplace.index');
     }
 
     /**
@@ -62,12 +66,13 @@ class AdminDashboardProductController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    // public function show($id)
+    //public function show($id)
     public function show($slug)
     {
-        $product = Product::whereSlug($slug)->firstOrFail();
-        return redirect()->route('product.show')->withPost($product);
+        $marketplace = Marketplace::whereSlug($slug)->firstOrFail();
+        return view('admindashboard.settings.marketplace.show')->withMarketplace($marketplace);
     }
+
 
     /**
      * Show the form for editing the specified resource.
@@ -77,7 +82,7 @@ class AdminDashboardProductController extends Controller
      */
     public function edit($id)
     {
-        //
+        
     }
 
     /**

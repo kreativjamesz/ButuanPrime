@@ -5,8 +5,8 @@
 @section('content-header')
     <section class="content-header">
         <h1>
-            Property Management
-            <small>manage your properties</small>
+            Product Management
+            <small>manage your products</small>
         </h1>
         <ol class="breadcrumb">
             <li><a href="#"><i class="fa fa-dashboard"></i> Level</a></li>
@@ -21,6 +21,20 @@
     <div class="col-md-6 col-md-offset-3">
         <form class="form-horizontal" action="{{route('product.store')}}" method="POST" enctype="multipart/form-data" class="dropzone" id="my-awesome-dropzone">
             {{csrf_field()}}
+            <!-- Marketplace -->
+            <div class="form-group">
+                <select name="" id="input" class="form-control input-lg" required="required" placeholder="Select Marketplace" autofocus>
+                    <option value="0" selected="selected">--Select Marketplace--</option>
+                    <option value=""></option>
+                </select>
+            </div>
+            <!--Category-->
+            <div class="form-group">
+                <select name="" id="input" class="form-control input-lg" required="required" placeholder="Select Marketplace">
+                    <option value="0" selected="selected">--Select Category--</option>
+                    <option value=""></option>
+                </select>
+            </div>
             <!-- TITLE -->
             <div class="form-group">
                 <div class="">
@@ -45,10 +59,9 @@
                     <textarea name="description" id="input" class="form-control input-lg" rows="3" required="required" placeholder="Product Description"></textarea>
                 </div>
             </div>
-
-            <button class="btn btn-success btn-lg pull-right">Save New Product</button>
-
-
+            <div class="form-group m-b-15">
+                <button class="btn btn-success btn-lg pull-right">Save New Product</button>
+            </div>
 
         </form>
     </div>

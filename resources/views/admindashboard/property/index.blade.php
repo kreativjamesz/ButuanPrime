@@ -22,12 +22,11 @@
             <div class="box-header">
               	<a href="{{route('property.create')}}" class="btn btn-success pull-right"><i class="fa fa-plus"></i> Add New Listings</a><h3 class="box-title">Data Table With Full Features</h3>
             </div>
-            <!-- /.box-header -->
             <div class="box-body">
               	<div id="example1_wrapper" class="dataTables_wrapper form-inline dt-bootstrap">
               		<div class="row">
 					   <div class="col-sm-12">
-        					<table id="example1" class="table table-bordered table-striped dataTable" role="grid" aria-describedby="example1_info">
+        					<table id="tble_property" class="table table-bordered table-striped dataTable" role="grid" aria-describedby="example1_info">
                             	<thead>
             	                	<tr role="row">
             	                		<th class="sorting_asc" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending" style="width: 182px;">Rendering engine</th>
@@ -67,11 +66,8 @@
                     </div>
       			</div>
             </div>
-            <!-- /.box-body -->
-          </div>
-          <!-- /.box -->
         </div>
-        <!-- /.col -->
+    </div>
 </div>
 @endsection
 
@@ -81,14 +77,13 @@
 <script src="{{asset('/bower_components/AdminLTE/plugins/datatables/dataTables.bootstrap.min.js')}}"></script>
 <script>
 	  $(function () {
-	    $('#example1').DataTable()
-	    $('#example2').DataTable({
-	      'paging'      : true,
-	      'lengthChange': false,
-	      'searching'   : false,
-	      'ordering'    : true,
-	      'info'        : true,
-	      'autoWidth'   : false
+	    $('#tble_property').DataTable({
+	       'paging'      : true,
+	       'lengthChange': false,
+	       'searching'   : false,
+	       'ordering'    : true,
+	       'info'        : true,
+	       'autoWidth'   : false
 	    })
   	})
 </script>

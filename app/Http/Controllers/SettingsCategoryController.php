@@ -3,8 +3,12 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Category;
+use Session;
+use DB;
 
-class AdminDashboardProductController extends Controller
+
+class SettingsCategoryController extends Controller
 {
     /**
      * Create a new controller instance.
@@ -22,7 +26,8 @@ class AdminDashboardProductController extends Controller
      */
     public function index()
     {
-        return view('admindashboard.product.index');
+        $categories = Category::orderBy('id','desc')->paginate(5);
+        return view('admindashboard.settings.category.index',compact('categories'));
     }
 
     /**
@@ -32,7 +37,8 @@ class AdminDashboardProductController extends Controller
      */
     public function create()
     {
-        return view('admindashboard.product.create');
+        $categories = Category::all();
+        return view('admindashboard.settings.category.create',compact('categories'));
     }
 
     /**
@@ -47,13 +53,12 @@ class AdminDashboardProductController extends Controller
             'title'=>'required',
         ]);
 
-        $property = new Product();
-        $property->title = $request->title;
-        $property->save();
+        $category = new Category();
+        $category->title = $request->title;
+        $category->save();
 
-        Session::flash('success', 'Successfully created the new '. $property->title . ' role in the database.');
-        return redirect()->route('product.show', $property->id);
-
+        Session::flash('success', 'Successfully created the new '. $category->title . ' in the database.');
+        return redirect()->route('category.index');
     }
 
     /**
@@ -62,11 +67,10 @@ class AdminDashboardProductController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    // public function show($id)
     public function show($slug)
     {
-        $product = Product::whereSlug($slug)->firstOrFail();
-        return redirect()->route('product.show')->withPost($product);
+        $categories = Category::whereSlug($slug)->firstOrFail();
+        return view('admindashboard.settings.category.show')->withCategories($categories);
     }
 
     /**

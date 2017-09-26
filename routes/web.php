@@ -21,8 +21,9 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 
 Route::prefix('dashboard')->middleware('role:superadministrator|administrator|editor|author|contributor')->group(function() {
-  	Route::get('/', 'AdminDashboardController@index')->name('admin.dashboard');
+  	Route::get('/', 'AdminDashboardController@index')->name('dashboard');
   	Route::resource('/property', 'AdminDashboardPropertyController');
   	Route::resource('/product', 'AdminDashboardProductController');
-
+  	Route::resource('/category','SettingsCategoryController');
+  	Route::resource('/marketplace','SettingsMarketplaceController');
 });
