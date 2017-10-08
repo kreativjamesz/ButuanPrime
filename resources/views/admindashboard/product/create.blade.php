@@ -23,7 +23,7 @@
             {{csrf_field()}}
             <!-- Marketplace -->
             <div class="form-group">
-                <select name="" id="input" class="form-control input-lg" required="required" required="required" placeholder="Select Marketplace" autofocus>
+                <select name="marketplace_id" id="input" class="form-control input-lg" required="required" required="required" placeholder="Select Marketplace" autofocus>
                     <option value="0" selected="selected">--Select Marketplace--</option>
                     @foreach($marketplaces as $market)
                         <option value="{{$market->id}}">{{$market->title}}</option>
@@ -32,7 +32,7 @@
             </div>
             <!--Category-->
             <div class="form-group">
-                <select name="" id="input" class="form-control input-lg" required="required" required="required" placeholder="Select Marketplace">
+                <select name="category_id" id="input" class="form-control input-lg" required="required" required="required" placeholder="Select Marketplace">
                     <option value="0" selected="selected">--Select Category--</option>
                     @foreach($categories as $category)
                         <option value="{{$category->id}}">{{$category->title}}</option>
@@ -48,21 +48,21 @@
             <!-- REGULAR -->
             <div class="form-group">
                 <div class="">
-                    <input type="text" name="regular" class="form-control input-lg" required="required" placeholder="Regular Price">
+                    <input type="text" name="reg_price" class="form-control input-lg" required="required" placeholder="Regular Price">
                 </div>
             </div>
             <!-- DISCOUNTED -->
             <div class="form-group">
                 <div class="">
-                    <input type="text" name="discounted" class="form-control input-lg" required="required" placeholder="Discounted Price">
+                    <input type="text" name="dc_price" class="form-control input-lg" required="required" placeholder="Discounted Price">
                 </div>
             </div>
             <!-- DESCRIPTION -->
-            <div class="form-group">
+            {{-- <div class="form-group">
                 <div class="">
                     <textarea name="description" id="input" class="form-control input-lg" rows="3" required="required" placeholder="Product Description"></textarea>
                 </div>
-            </div>
+            </div> --}}
             <div class="form-group m-b-15">
                 <button class="btn btn-success btn-lg pull-right">Save New Product</button>
             </div>

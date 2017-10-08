@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Marketplace;
 use App\Category;
+use App\Product; 
+use Session;
+use DB;
 
 class AdminDashboardProductController extends Controller
 {
@@ -24,9 +27,10 @@ class AdminDashboardProductController extends Controller
      */
     public function index()
     {
+        $products = Product::all();
         $marketplaces = Marketplace::pluck('title','id');
         $categories = Category::pluck('title','id');
-        return view('admindashboard.product.index',compact('marketplaces','categories'));
+        return view('admindashboard.product.index',compact('products','marketplaces','categories'));
     }
 
     /**
@@ -53,12 +57,16 @@ class AdminDashboardProductController extends Controller
             'title'=>'required',
         ]);
 
-        $property = new Product();
-        $property->title = $request->title;
-        $property->save();
+        $products = new Product();
+        $products->title = $request->title;
+        $products->marketplace_id = $request->marketplace_id;
+        $products->category_id = $request->category_id;
+        $products->reg_price = $request->reg_price;
+        $products->dc_price = $request->dc_price;
+        $products->save();
 
-        Session::flash('success', 'Successfully created the new '. $property->title . ' role in the database.');
-        return redirect()->route('product.show', $property->id);
+        Session::flash('success', 'Successfully created the new '. $products    ->title . ' role in the database.');
+        return redirect()->route('product.show', $products->id);
 
     }
 

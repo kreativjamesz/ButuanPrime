@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Product extends Model
 {
-    protected $fillable = ['title','slug','marketplace_id','category_id','reg_price','dc_price'];
+    protected $fillable = ['title','marketplace_id','category_id','reg_price','dc_price'];
 
     public function setTitleAttribute($value)
   	{

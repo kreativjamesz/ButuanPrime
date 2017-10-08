@@ -32,31 +32,28 @@
                             	<thead>
             	                	<tr role="row">
             	                		<th class="sorting_asc" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending" style="width: 25%;">Product</th>
-            							<th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Browser: activate to sort column ascending" style="width: 25%;">Regular Price</th>
-            	                		<th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Platform(s): activate to sort column ascending" style="width: 25%;">Discoutned Price</th>
-            	                		<th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Engine version: activate to sort column ascending" style="width: 25%;">Description</th>
+            	                		<th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Engine version: activate to sort column ascending" style="width: 25%;">Slug</th>
+                                  <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Browser: activate to sort column ascending" style="width: 25%;">Regular Price</th>
+                                  <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Platform(s): activate to sort column ascending" style="width: 25%;">Discoutned Price</th>
                             		</tr>
                             	</thead>
                             	<tbody>
-                            		<tr role="row" class="odd">
-                              			<td class="sorting_1">Luxx White</td>
-                              			<td>Php 2,500.00</td>
-                              			<td>Php 2,100.00</td>
-                              			<td>This glutathione helps keep your skin firms and young looking skin.</td>
+                            		@foreach($products as $product)
+                                <tr role="row" class="odd">
+                              			<td class="sorting_1">{{$product->title}}</td>
+                                    <td>{{$product->slug}}</td>
+                              			<td>{{$product->reg_price}}</td>
+                              			<td>{{$product->dc_price}}</td>
+                              			{{-- <td>This glutathione helps keep your skin firms and young looking skin.</td> --}}
                             		</tr>
-                            		<tr role="row" class="even">
-                              			<td class="sorting_1">Gluta Maxx</td>
-                              			<td>Php 2,500.00</td>
-                              			<td>Php 2,100.00</td>
-                              			<td>This glutathione helps keep your skin firms and young looking skin.</td>
-                            		</tr>
+                            		@endforeach
                             	</tbody>
                             	<tfoot>
                             		<tr>
                             			<th rowspan="1" colspan="1">Product</th>
                             			<th rowspan="1" colspan="1">Regular Price</th>
                             			<th rowspan="1" colspan="1">Discounted Price</th>
-                            			<th rowspan="1" colspan="1">Description</th>
+                            			{{-- <th rowspan="1" colspan="1">Description</th> --}}
                         			</tr>
                             	</tfoot>
                             </table>
